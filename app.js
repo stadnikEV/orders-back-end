@@ -22,6 +22,7 @@ initTables()
     require('./routes')({ app });
 
     app.use((err, req, res, next) => {
+      console.log(err);
       if (err instanceof HttpError) {
         res.sendHttpError(err);
         logger.error(err.stack);
