@@ -1,7 +1,7 @@
 const allowCrossDomain = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type, application/json');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, UPDATE');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST');
 
   next();
 }

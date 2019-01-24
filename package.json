@@ -4,7 +4,7 @@
   "description": "back-end",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=dev supervisor app.js"
+    "dev": "NODE_ENV=dev node app.js"
   },
   "author": "Eugene Stadnik",
   "license": "ISC",

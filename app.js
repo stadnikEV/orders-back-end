@@ -5,7 +5,6 @@ const logger = require('./libs/logger');
 const config = require('./config');
 const HttpError = require('./libs/http-error');
 const initTables = require('./libs/database/init-tables.js');
-// const dropTables = require('./libs/database/drop-table.js');
 
 
 initTables()
@@ -17,15 +16,13 @@ initTables()
     app.use(require('./middleware/send-http-error'));
     app.use(require('./middleware/set-cross-domain'));
 
-
-    // dropTables({ table: 'orders' });
     require('./routes')({ app });
 
     app.use((err, req, res, next) => {
       console.log(err);
       if (err instanceof HttpError) {
         res.sendHttpError(err);
-        logger.error(err.stack);
+        logger.info(err.stack);
         return;
       }
 
@@ -42,6 +39,5 @@ initTables()
     });
   })
   .catch((e) => {
-    console.log(e);
     logger.error(e.stack);
   });
